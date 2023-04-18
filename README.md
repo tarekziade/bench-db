@@ -5,7 +5,7 @@ everything in memory.
 
 Implementations:
 
-- dbm (stdlib)
+- dbm - ndbm (stdlib)
 - sqlite3 (stdlib)
 - pysos -- https://github.com/dagnelies/pysos
 - tkrzw -- https://dbmx.net/tkrzw/api-python
@@ -19,7 +19,7 @@ TLDR;
 - tkrzw looks promising -- needs tweaking
 
 
-## dbm bench
+## dbm (ndbm)
 
 Maximum RSS: 11MiB
 
@@ -34,7 +34,7 @@ Looking for one id
 Size of DB on disk is 95.359375 MiB
 ```
 
-## sqlite3 bench
+## sqlite3
 
 Maximum RSS: 13MiB
 
@@ -48,7 +48,7 @@ Looking for one id
 Size of DB on disk is 34.44921875 MiB
 ```
 
-## tkrzw benchmark
+## tkrzw
 
 Maximum RSS: 19MiB
 
@@ -62,7 +62,7 @@ Looking for one id
 Size of DB on disk is 55.308563232421875 MiB
 ```
 
-## Pysos benchmark
+## Pysos
 
 Maximum RSS: 300MiB
 
