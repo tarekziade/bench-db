@@ -49,7 +49,7 @@ else:
         when = str(datetime.now(timezone.utc).timestamp())
         docs = []
         for y in range(1000):
-            id = f"{i}0000{y}"
+            id = f"{i}000a{y}"
             if len(id) > max_len:
                 max_len = len(id)
             docs.append((id, when))
@@ -67,7 +67,7 @@ d = ElasticIndexIds(DB_NAME)
 
 
 def _lookup():
-    assert d.find("23000034") is not None
+    assert d.find("23000a34") is not None
 
 
 print(f"{timeit.timeit(_lookup, number=1000)} seconds")

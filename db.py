@@ -20,7 +20,7 @@ else:
         for i in range(1000):
             when = str(datetime.now(timezone.utc).timestamp())
             for y in range(1000):
-                id = f"{i}0000{y}"
+                id = f"{i}000a{y}"
                 if len(id) > max_len:
                     max_len = len(id)
                 db[id] = str(when)
@@ -33,7 +33,7 @@ with dbm.open("dbm_store", "c") as db:
     print("Looking for one id")
 
     def _lookup():
-        assert db["23000034"] is not None
+        assert db["23000a34"] is not None
 
     print(f"{timeit.timeit(_lookup, number=1000)} seconds")
 
