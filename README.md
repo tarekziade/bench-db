@@ -5,12 +5,17 @@ everything in memory.
 
 Implementations:
 
-- dbm
-- sqlite3
-- pysos -- just to try out (https://github.com/dagnelies/pysos)
+- dbm (stdlib)
+- sqlite3 (stdlib)
+- pysos -- https://github.com/dagnelies/pysos
+- tkrzw -- https://dbmx.net/tkrzw/api-python
 
+TLDR;
 
-dbm has faster lookups! sqlite is smaller on disk.
+- dbm has faster lookups! 
+- sqlite3 is smaller on disk.
+- tkrzw looks promising -- needs tweaking
+
 
 ## dbm bench
 
