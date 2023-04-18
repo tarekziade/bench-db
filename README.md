@@ -9,11 +9,13 @@ Implementations:
 - sqlite3 (stdlib)
 - pysos -- https://github.com/dagnelies/pysos
 - tkrzw -- https://dbmx.net/tkrzw/api-python
+- ldbm -- https://github.com/Dobatymo/lmdb-python-dbm
+
 
 TLDR;
 
-- dbm has faster lookups! 
-- sqlite3 is smaller on disk.
+- dbm has faster lookups!
+- sqlite3 is smaller on disk
 - tkrzw looks promising -- needs tweaking
 
 
@@ -71,5 +73,17 @@ Final count 1000000
 max id len is 10
 Looking for one id
 0.0018717409984674305 seconds
+```
+
+## LDBM
+
+```sh
+Adding 1 million ids and timestamps
+took 1.4407689571380615 seconds
+Final count 1000000
+max id len is 10
+Looking for one id
+0.000999119016341865 seconds
+Size of DB on disk is 81MiB
 ```
 
