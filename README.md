@@ -77,6 +77,8 @@ Looking for one id
 
 ## LDBM
 
+Maximum RSS: 19MiB
+
 ```sh
 Adding 1 million ids and timestamps
 took 1.4407689571380615 seconds
