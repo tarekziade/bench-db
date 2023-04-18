@@ -29,7 +29,7 @@ else:
         print(f"max id len is {max_len}")
 
 
-with dbm.open("dbm_store", "c") as db:
+with dbm.open("dbm_store", "r") as db:
     print("Looking for one id")
 
     def _lookup():
