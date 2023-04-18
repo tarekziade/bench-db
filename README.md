@@ -33,12 +33,12 @@ Maximum RSS: 13MiB
 
 ```sh
 Adding 1 million ids and timestamps
-took 3.1656839847564697 seconds
+took 2.6603636741638184 seconds
 Final count 1000000
 max id len is 10
 Looking for one id
-0.012021810980513692 seconds
-Size of DB on disk is 54.109375 MiB
+0.012375471997074783 seconds
+Size of DB on disk is 34.44921875 MiB
 ```
 
 ## Pysos benchmark

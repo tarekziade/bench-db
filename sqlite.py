@@ -17,7 +17,7 @@ class ElasticIndexIds:
                 CREATE TABLE IF NOT EXISTS elastic_id(
                     doc_id text primary key,
                     ts TEXT
-                )
+                ) WITHOUT ROWID;
         """
         )
 
