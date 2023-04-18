@@ -15,21 +15,25 @@ else:
     with dbm.open("dbm_store", "c") as db:
         s = time.time()
         print("Adding 1 million ids and timestamps")
+        max_len = 0
+
         for i in range(1000):
             when = str(datetime.now(timezone.utc).timestamp())
             for y in range(1000):
-                id = hashlib.md5(f"{i}{y}".encode("utf8")).hexdigest()
+                id = f"{i}0000{y}"
+                if len(id) > max_len:
+                    max_len = len(id)
                 db[id] = str(when)
-
-            print(len(db))
         print(f"took {time.time() - s} seconds")
+        print(f"Final count {len(db)}")
+        print(f"max id len is {max_len}")
 
 
 with dbm.open("dbm_store", "c") as db:
     print("Looking for one id")
 
     def _lookup():
-        assert db[hashlib.md5(b"9651").hexdigest()] is not None
+        assert db["23000034"] is not None
 
     print(f"{timeit.timeit(_lookup, number=1000)} seconds")
 

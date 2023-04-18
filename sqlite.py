@@ -41,27 +41,33 @@ if os.path.exists(DB_NAME):
 else:
     d = ElasticIndexIds(DB_NAME)
 
-
+    max_len = 0
     s = time.time()
     print("Adding 1 million ids and timestamps")
 
-    for i in range(100):
-        when = datetime.now(timezone.utc)
-        docs = [
-            (hashlib.md5(f"{i}{x}".encode("utf8")).hexdigest(), when)
-            for x in range(10000)
-        ]
+    for i in range(1000):
+        when = str(datetime.now(timezone.utc).timestamp())
+        docs = []
+        for y in range(1000):
+            id = f"{i}0000{y}"
+            if len(id) > max_len:
+                max_len = len(id)
+            docs.append((id, when))
+
         d.add_docs(docs)
-        print(d.count())
 
     print(f"took {time.time() - s} seconds")
+    print(f"Final count {d.count()}")
+    print(f"max id len is {max_len}")
+
 
 print("Looking for one id")
 
 d = ElasticIndexIds(DB_NAME)
 
+
 def _lookup():
-    assert d.find(hashlib.md5(b"9651").hexdigest()) is not None
+    assert d.find("23000034") is not None
 
 
 print(f"{timeit.timeit(_lookup, number=1000)} seconds")
