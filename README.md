@@ -7,10 +7,10 @@ Implementations:
 
 - dbm
 - sqlite3
-- pysos (https://github.com/dagnelies/pysos)
+- pysos -- just to try out (https://github.com/dagnelies/pysos)
 
 
-dbm has faster lookups!
+dbm has faster lookups! sqlite is smaller on disk.
 
 ## dbm bench
 
@@ -41,7 +41,7 @@ Looking for one id
 Size of DB on disk is 54.109375 MiB
 ```
 
-## Pysis benchmark
+## Pysos benchmark
 
 Maximum RSS: 300MiB
 
