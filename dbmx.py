@@ -8,19 +8,27 @@ import timeit
 
 
 DB_NAME = "casket.tkh"
+NUM_BUCKETS = 1000000 * 2
 
 if os.path.exists(DB_NAME):
     print(f"DB exists, delete {DB_NAME} to recreate")
 else:
-    dbm = tkrzw.DBM()
-    dbm.Open(
-        DB_NAME, True, truncate=True, num_buckets=100000, update_mode="UPDATE_APPENDING"
-    )
-
     s = time.time()
     print("Adding 1 million ids and timestamps")
     max_len = 0
+    dbm = tkrzw.DBM()
+    dbm.Open(
+        DB_NAME,
+        True,
+        truncate=False,
+        num_buckets=NUM_BUCKETS,
+        update_mode="UPDATE_APPENDING",
+        offset_width=5,
+        align_pow=4,
+    )
 
+
+    x = 0
     for i in range(1000):
         when = str(datetime.now(timezone.utc).timestamp())
         for y in range(1000):
@@ -28,7 +36,14 @@ else:
             if len(id) > max_len:
                 max_len = len(id)
             dbm[id] = str(when)
+            x += 1
+            if x > 2500:
+                dbm.Synchronize(True)
+                x = 0
 
+    dbm.Close()
+    dbm = tkrzw.DBM()
+    dbm.Open(DB_NAME, False)
     print(f"took {time.time() - s} seconds")
     print(f"Final count {dbm.Count()}")
     print(f"max id len is {max_len}")
@@ -36,7 +51,8 @@ else:
 
 
 dbm = tkrzw.DBM()
-dbm.Open(DB_NAME, True, truncate=False, num_buckets=100)
+dbm.Open(DB_NAME, False)
+
 print("Looking for one id")
 
 

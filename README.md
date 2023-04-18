@@ -48,16 +48,16 @@ Size of DB on disk is 34.44921875 MiB
 
 ## tkrzw benchmark
 
-Maximum RSS: 46MiB
+Maximum RSS: 19MiB
 
 ```
 Adding 1 million ids and timestamps
-took 1.4278862476348877 seconds
+took 10.578145027160645 seconds
 Final count 1000000
 max id len is 10
 Looking for one id
-0.0008815110195428133 seconds
-Size of DB on disk is 38.49774169921875 MiB
+0.00043975599692203104 seconds
+Size of DB on disk is 55.308563232421875 MiB
 ```
 
 ## Pysos benchmark
